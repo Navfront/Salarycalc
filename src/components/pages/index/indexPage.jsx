@@ -30,35 +30,64 @@ const isNotWorkingDay = (year, month, day) => {
   return false;
 };
 
+const getHolidaysFetch = (year) => {
+  try {
+    fetch(`https://isdayoff.ru/api/getdata?date1=${year}0101&date2=${year}1231`)
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error("Ответ сети был не ok.");
+        }
+        return res.text();
+      })
+      .then((data) => console.log(data));
+  } catch (error) {
+    console.log("Возникла проблема с вашим запросом: ", error.message);
+  }
+};
+
 const getWorkDaysDataArray = (year) => {
+  let dayCounter = 0;
   const initArray = new Array(12).fill(new Array(49).fill({ hDay: null }), 0, 12);
   const result = initArray.map((arrMonth, monthIndex) => {
     const maxDays = getCountOfDaysInMonth(year, monthIndex + 1);
     const offSetDays = getOffsetFirstDayInMonth(year, monthIndex + 1);
     return arrMonth.map((objDay, index) => {
-      {
-        if (index >= maxDays + offSetDays || index < offSetDays) {
-          return { ...objDay, day: null };
-        } else
-          return {
-            ...objDay,
-            day: index - offSetDays + 1,
-            hDay: isNotWorkingDay(year, monthIndex + 1, index - offSetDays + 1),
-          };
+      if (index >= maxDays + offSetDays || index < offSetDays) {
+        return { ...objDay, day: null };
+      } else {
+        dayCounter++;
+        return {
+          ...objDay,
+          day: index - offSetDays + 1,
+          hDay: isNotWorkingDay(year, monthIndex + 1, index - offSetDays + 1),
+          dayIndex: dayCounter,
+        };
       }
     });
   });
   return result;
 };
-
-let data = moment(getFirstDayYearString(2022)).day(); // первый день года
+const twtwo =
+  "11111111100000110000011000001100000110000011000001100100110000001110001100000110000011000001100000110000011000001100000111100011110001100000110000011000001100000111000011000001100000110000011000001100000110000011000001100000110000011000001100000110000011000001100000110000011000001100000110000011000001100001110000011000001100000110000011000001100000110000011000001";
+const getDataArrayWithHDays = (array, holydaysString) => {
+  const hDaysArray = [...holydaysString].map((item) => (item === "0" ? false : true));
+  console.log("do", array);
+  let counter = 0;
+  const result = array.map((arr) => {
+    return arr.map((item) => {
+      if (item.dayIndex) {
+        return { ...item, hDay: hDaysArray[counter++] };
+      }
+      return item;
+    });
+  });
+  console.log("new", result);
+};
 
 const IndexPage = ({ store }) => {
   const [momentus, setMomentus] = useState("");
   useEffect(() => {
-    setMomentus(data);
-    console.log(isNotWorkingDay(2022, 4, 25));
-    console.log("!", getWorkDaysDataArray(2022));
+    console.log(getDataArrayWithHDays(getWorkDaysDataArray(2022), twtwo));
   }, []);
 
   return (
