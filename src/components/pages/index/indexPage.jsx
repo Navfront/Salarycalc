@@ -1,11 +1,27 @@
 import Header from "../../../stories/layouts/header/Header";
 import Container from "./../../../stories/layouts/container/Container";
 import Main from "./../../../stories/layouts/main/Main";
-import PMButton from "./../../../stories/ui/pm-button/PMbutton";
+
 import Footer from "./../../../stories/layouts/footer/Footer";
-import Counter from "../../ui/counter";
+
 import { useEffect, useState } from "react";
 import getWorkDaysDataArray from "../../../api/work-days-api";
+import WorkCalendar from "../../../stories/ui/work-calendar/WorkCalendar";
+
+const months = [
+  "Январь",
+  "Февраль",
+  "Март",
+  "Апрель",
+  "Май",
+  "Июнь",
+  "Июль",
+  "Август",
+  "Сентябрь",
+  "Октябрь",
+  "Ноябрь",
+  "Декабрь",
+];
 
 const IndexPage = ({ store }) => {
   const [momentus, setMomentus] = useState("");
@@ -20,29 +36,9 @@ const IndexPage = ({ store }) => {
       </Header>
       <Main bgColor="lightblue">
         <Container>
-          This is Main
-          <PMButton
-            bgColor="#333"
-            textColor="white"
-            paddings="5px 10px"
-            onClick={() => {
-              store.dispatch({ type: "counter/incremented" });
-            }}
-          >
-            Прибавить 10
-          </PMButton>
-          <Counter store={store} value={"0"} />
-          <PMButton
-            onClick={() => {
-              store.dispatch({ type: "counter/decremented" });
-            }}
-            bgColor="#333"
-            textColor="white"
-            paddings="5px 10px"
-          >
-            Отнять 10
-          </PMButton>
-          <p>{momentus}</p>
+          {months.map((item, index) => (
+            <WorkCalendar title={item} key={index} month={index} />
+          ))}
         </Container>
       </Main>
       <Footer bgColor="dark">

@@ -31,7 +31,6 @@ const getWorkDaysDataArray = (year) => {
     let dayNumber = 1;
     const maxDays = getCountOfDaysInMonth(year, monthIndex + 1);
     const offSetDays = getOffsetFirstDayInMonth(year, monthIndex + 1);
-    console.log(offSetDays);
     return arrMonth.map((objDay, index) => {
       if (index < offSetDays - 1 || index > maxDays + offSetDays - 2) {
         return { ...objDay, day: null };

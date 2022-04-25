@@ -36,8 +36,10 @@ export const StyledWorkCalendarWrapper = styled.div`
 export const SCell = styled.div`
   box-sizing: border-box;
   background-color: ${({ isHday }) => {
-    return isHday ? "red" : "#795e46";
+    return isHday ? "darkred" : "#795e46";
   }};
+  color: white;
+  font-size: 26px;
   border-radius: 3px;
   text-align: center;
   vertical-align: middle;

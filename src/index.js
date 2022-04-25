@@ -1,6 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import reportWebVitals from "./reportWebVitals";
 import "./index.css";
 import IndexPage from "./components/pages/index/indexPage";
 import { createStore } from "redux";
@@ -28,5 +27,3 @@ root.render(
     <IndexPage store={store} />
   </React.StrictMode>
 );
-
-reportWebVitals();
