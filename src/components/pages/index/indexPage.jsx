@@ -11,7 +11,10 @@ const getFirstDayYearString = (year) => {
   return `${year}0101`;
 };
 const getCountOfDaysInMonth = (year, month) => {
-  return moment(`${year}${month}`, "YYYYMM").daysInMonth();
+  return moment(`${year}${month < 10 ? "0" + month : month}`, "YYYYMM").daysInMonth();
+};
+const getOffsetFirstDayInMonth = (year, month) => {
+  return moment(`${year}${month < 10 ? "0" + month : month}`).day();
 };
 
 let data = moment(getFirstDayYearString(2022)).day(); // первый день года
@@ -23,8 +26,7 @@ const IndexPage = ({ store }) => {
     const workDaysData = new Array(12).fill(new Array(49).fill({}), 0, 12);
     const newArr = workDaysData.map((arrMonth, monthIndex) => {
       const maxDays = getCountOfDaysInMonth(2022, monthIndex + 1);
-      const offSetDays = 5; // надо определить
-      console.log(maxDays);
+      const offSetDays = getOffsetFirstDayInMonth(2022, monthIndex + 1);
       return arrMonth.map((objDay, index) => {
         {
           if (index >= maxDays + offSetDays || index < offSetDays) {
@@ -34,7 +36,7 @@ const IndexPage = ({ store }) => {
       });
     });
 
-    console.log(workDaysData);
+    console.log();
     console.log("!", newArr);
   });
 
