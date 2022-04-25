@@ -9,7 +9,15 @@ export default {
   },
 };
 
-const Template = (args) => <WorkCalendar {...args} />;
+const Template = (args) => (
+  <>
+    <WorkCalendar {...args} month="0" title="Янв " />
+    <WorkCalendar {...args} month="1" title="Фев " />
+    <WorkCalendar {...args} month="2" title="Мар " />
+    <WorkCalendar {...args} month="3" title="Апр " />
+    <WorkCalendar {...args} month="4" title="Май " />
+  </>
+);
 
 export const Example = Template.bind({});
 Example.args = {

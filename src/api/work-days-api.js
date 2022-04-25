@@ -7,7 +7,8 @@ const getCountOfDaysInMonth = (year, month) => {
   return moment(`${year}${month < 10 ? "0" + month : month}`, "YYYYMM").daysInMonth();
 };
 const getOffsetFirstDayInMonth = (year, month) => {
-  return moment(`${year}${month < 10 ? "0" + month : month}`).day();
+  const result = moment(`${year}${month < 10 ? "0" + month : month}`).day();
+  return result === 0 ? 7 : result;
 };
 
 const isNotWorkingDay = (year, month, day) => {
@@ -25,30 +26,31 @@ const isNotWorkingDay = (year, month, day) => {
 
 const getWorkDaysDataArray = (year) => {
   let dayCounter = 0;
-  const initArray = new Array(12).fill(new Array(49).fill({ hDay: null }), 0, 12);
+  const initArray = new Array(12).fill(new Array(42).fill({ hDay: null }), 0, 12);
   const result = initArray.map((arrMonth, monthIndex) => {
+    let dayNumber = 1;
     const maxDays = getCountOfDaysInMonth(year, monthIndex + 1);
     const offSetDays = getOffsetFirstDayInMonth(year, monthIndex + 1);
+    console.log(offSetDays);
     return arrMonth.map((objDay, index) => {
-      if (index >= maxDays + offSetDays || index < offSetDays) {
+      if (index < offSetDays - 1 || index > maxDays + offSetDays - 2) {
         return { ...objDay, day: null };
       } else {
-        dayCounter++;
         return {
           ...objDay,
-          day: index - offSetDays + 1,
-          hDay: isNotWorkingDay(year, monthIndex + 1, index - offSetDays + 1),
-          dayIndex: dayCounter,
+          day: dayNumber++,
+          hDay: isNotWorkingDay(year, monthIndex + 1, index - offSetDays + 2),
+          dayIndex: ++dayCounter,
         };
       }
     });
   });
+
   return result;
 };
 
 export const getDataArrayWithHDays = (array, holydaysString) => {
   const hDaysArray = [...holydaysString].map((item) => (item === "0" ? false : true));
-  console.log("do", array);
   let counter = 0;
   const result = array.map((arr) => {
     return arr.map((item) => {
@@ -58,7 +60,7 @@ export const getDataArrayWithHDays = (array, holydaysString) => {
       return item;
     });
   });
-  console.log("new", result);
+  return result;
 };
 
 export const getHolidaysFetch = (year) => {

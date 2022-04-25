@@ -5,13 +5,12 @@ import PMButton from "./../../../stories/ui/pm-button/PMbutton";
 import Footer from "./../../../stories/layouts/footer/Footer";
 import Counter from "../../ui/counter";
 import { useEffect, useState } from "react";
-
-import getWorkDaysDataArray, { getDataArrayWithHDays, twtwo } from "../../../api/work-days-api";
+import getWorkDaysDataArray from "../../../api/work-days-api";
 
 const IndexPage = ({ store }) => {
   const [momentus, setMomentus] = useState("");
   useEffect(() => {
-    console.log(getDataArrayWithHDays(getWorkDaysDataArray(2022), twtwo));
+    console.log(getWorkDaysDataArray(2022));
   }, []);
 
   return (
