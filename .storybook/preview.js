@@ -1,3 +1,10 @@
+import React from "react";
+import { addDecorator } from "@storybook/react";
+import { ThemeProvider } from "styled-components";
+import { defaultTheme } from "./../src/theme/defaultTheme";
+
+addDecorator((story) => <ThemeProvider theme={defaultTheme}>{story()}</ThemeProvider>);
+
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
   controls: {
@@ -6,4 +13,4 @@ export const parameters = {
       date: /Date$/,
     },
   },
-}
+};

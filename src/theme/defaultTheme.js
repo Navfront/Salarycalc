@@ -16,3 +16,5 @@ export const defaultTheme = {
     hoverBorder: "#8399A4",
   },
 };
+
+export default defaultTheme;
