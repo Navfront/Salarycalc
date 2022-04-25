@@ -4,6 +4,10 @@ html {
 body {
   height: 100%;
   margin: 0;
+  min-width: 320px;
+  font-family: "Roboto", "Arial", sans-serif;
+  font-size: 18px;
+  color: #333333;
 }
 
 #root {

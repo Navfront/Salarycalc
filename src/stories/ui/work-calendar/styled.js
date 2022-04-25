@@ -1,7 +1,10 @@
 import styled from "styled-components/macro";
 
-export const StyledWorkCalendar = styled.article``;
-
+export const StyledWorkCalendar = styled.article`
+  color: inherit;
+  font-size: 18px;
+  font-weight: 400;
+`;
 export const HiddenWorkCalendarTitle = styled.h2`
   position: absolute;
   width: 1px;
@@ -15,15 +18,15 @@ export const HiddenWorkCalendarTitle = styled.h2`
   overflow: hidden;
 `;
 export const StyledWorkCalendarFigure = styled.figure`
-  border: 1px solid #bf6929;
   border-radius: 4px;
-  padding: ${({ cellSize }) => {
-    return cellSize ? cellSize + "px" : "0";
-  }};
+  margin: 0;
+  padding: 5px 10px;
 `;
 export const StyledWorkCalendarCaption = styled.figcaption`
-  font-size: 20px;
+  font-size: 28px;
   font-weight: 700;
+  color: inherit;
+  margin-bottom: 10px;
 `;
 
 export const StyledWorkCalendarWrapper = styled.div`
@@ -34,28 +37,29 @@ export const StyledWorkCalendarWrapper = styled.div`
 `;
 
 export const SCell = styled.div`
+  position: relative;
   box-sizing: border-box;
-  background-color: ${({ isHday }) => {
-    return isHday ? "darkred" : "#795e46";
+  background-color: ${({ isHday, theme }) => {
+    return isHday ? theme.colors.bgAccent : theme.colors.bgLAccent;
   }};
-  color: white;
-  font-size: 26px;
-  border-radius: 3px;
+  color: ${({ isHday, theme }) => (isHday ? theme.colors.warn : theme.colors.text)};
   text-align: center;
   vertical-align: middle;
   user-select: none;
   display: inline-flex;
-
-  padding: ${({ cellSize }) => {
-    return cellSize ? cellSize + "px" : "0";
-  }};
-  font-size: 40px;
+  padding: 3px;
+  font-size: 18px;
+  font-weight: 500;
+  min-height: 50px;
 
   &:hover,
   &:focus {
-    background-color: #bf9d7f;
+    outline: 2px solid ${({ theme }) => theme.colors.hoverBorder};
+    outline-offset: -2px;
   }
   &:active {
     opacity: 0.8;
+    outline: 2px solid ${({ theme }) => theme.colors.bgAccent};
+    outline-offset: -2px;
   }
 `;
