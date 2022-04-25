@@ -1,17 +1,32 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import reportWebVitals from "./reportWebVitals";
+import "./index.css";
+import IndexPage from "./components/pages/index/indexPage";
+import { createStore } from "redux";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+function counterReducer(state = { value: 5 }, action) {
+  switch (action.type) {
+    case "counter/incremented":
+      return { value: state.value + 10 };
+    case "counter/decremented":
+      return { value: state.value - 10 };
+    default:
+      return state;
+  }
+}
+
+const store = createStore(
+  counterReducer,
+
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+    <IndexPage store={store} />
   </React.StrictMode>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();

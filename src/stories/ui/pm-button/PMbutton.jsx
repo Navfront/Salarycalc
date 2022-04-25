@@ -1,8 +1,15 @@
 import { StyledPMButton } from "./styled";
 
-const PMButton = ({ bgColor, children, hSize, wSize, paddings, textColor }) => {
+const PMButton = ({ onClick, bgColor, children, hSize, wSize, paddings, textColor }) => {
   return (
-    <StyledPMButton textColor={textColor} bgColor={bgColor} hSize={hSize} wSize={wSize} paddings={paddings}>
+    <StyledPMButton
+      onClick={onClick}
+      textColor={textColor}
+      bgColor={bgColor}
+      hSize={hSize}
+      wSize={wSize}
+      paddings={paddings}
+    >
       {children}
     </StyledPMButton>
   );
