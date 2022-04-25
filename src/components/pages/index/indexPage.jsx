@@ -17,28 +17,49 @@ const getOffsetFirstDayInMonth = (year, month) => {
   return moment(`${year}${month < 10 ? "0" + month : month}`).day();
 };
 
+const isNotWorkingDay = (year, month, day) => {
+  if (day < 1) {
+    return false;
+  }
+  const fYear = `${year}`;
+  const fMonth = `${month < 10 ? "0" + month : month}`;
+  const fDay = `${day < 10 ? "0" + day : day}`;
+
+  if (moment(`${fYear}${fMonth}${fDay}`).day() === 0 || moment(`${fYear}${fMonth}${fDay}`).day() === 6) return true;
+
+  return false;
+};
+
+const getWorkDaysDataArray = (year) => {
+  const initArray = new Array(12).fill(new Array(49).fill({ hDay: null }), 0, 12);
+  const result = initArray.map((arrMonth, monthIndex) => {
+    const maxDays = getCountOfDaysInMonth(year, monthIndex + 1);
+    const offSetDays = getOffsetFirstDayInMonth(year, monthIndex + 1);
+    return arrMonth.map((objDay, index) => {
+      {
+        if (index >= maxDays + offSetDays || index < offSetDays) {
+          return { ...objDay, day: null };
+        } else
+          return {
+            ...objDay,
+            day: index - offSetDays + 1,
+            hDay: isNotWorkingDay(year, monthIndex + 1, index - offSetDays + 1),
+          };
+      }
+    });
+  });
+  return result;
+};
+
 let data = moment(getFirstDayYearString(2022)).day(); // первый день года
 
 const IndexPage = ({ store }) => {
   const [momentus, setMomentus] = useState("");
   useEffect(() => {
     setMomentus(data);
-    const workDaysData = new Array(12).fill(new Array(49).fill({}), 0, 12);
-    const newArr = workDaysData.map((arrMonth, monthIndex) => {
-      const maxDays = getCountOfDaysInMonth(2022, monthIndex + 1);
-      const offSetDays = getOffsetFirstDayInMonth(2022, monthIndex + 1);
-      return arrMonth.map((objDay, index) => {
-        {
-          if (index >= maxDays + offSetDays || index < offSetDays) {
-            return { ...objDay, day: null };
-          } else return { ...objDay, day: index - offSetDays + 1 };
-        }
-      });
-    });
-
-    console.log();
-    console.log("!", newArr);
-  });
+    console.log(isNotWorkingDay(2022, 4, 25));
+    console.log("!", getWorkDaysDataArray(2022));
+  }, []);
 
   return (
     <>
