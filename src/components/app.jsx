@@ -1,11 +1,14 @@
 import IndexPage from './pages/index/indexPage';
 import { defaultTheme } from './../theme/defaultTheme';
 import { ThemeProvider } from 'styled-components';
+import { BodyColor } from './../theme/bodyColor';
 
 function App() {
   return (
     <ThemeProvider theme={defaultTheme}>
-      <IndexPage />
+      <BodyColor>
+        <IndexPage />
+      </BodyColor>
     </ThemeProvider>
   );
 }

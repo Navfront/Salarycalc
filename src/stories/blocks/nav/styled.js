@@ -4,9 +4,8 @@ export const StyledNav = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 15px 20px 0;
-
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.04), 0 2px 6px rgba(0, 0, 0, 0.04), 0 0 1px rgba(0, 0, 0, 0.04);
+  padding: 15px 15px 20px;
+  margin: 0 10px;
 
   ul {
     list-style: none;
