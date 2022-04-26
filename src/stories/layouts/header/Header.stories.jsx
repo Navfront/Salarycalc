@@ -1,18 +1,20 @@
-import Header from "./Header";
+import Header from './Header';
 
 export default {
-  title: "Layout/Header",
+  title: 'Layout/Header',
   component: Header,
   agrTypes: {
-    bgColor: { control: "color" },
-    paddings: { control: "string" },
+    bgColor: { control: 'color' },
+    paddings: { control: 'string' },
   },
 };
 
-const Template = (args) => <Header {...args}>Header</Header>;
+function Template(args) {
+  return <Header {...args}>Header</Header>;
+}
 
 export const Example = Template.bind({});
 Example.args = {
-  bgColor: "pink",
-  paddings: "30px",
+  bgColor: 'pink',
+  paddings: '30px',
 };

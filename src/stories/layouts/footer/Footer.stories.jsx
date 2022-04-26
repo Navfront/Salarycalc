@@ -1,18 +1,20 @@
-import Footer from "./Footer";
+import Footer from './Footer';
 
 export default {
-  title: "Layout/Footer",
+  title: 'Layout/Footer',
   component: Footer,
   agrTypes: {
-    bgColor: { control: "color" },
-    paddings: { control: "string" },
+    bgColor: { control: 'color' },
+    paddings: { control: 'string' },
   },
 };
 
-const Template = (args) => <Footer {...args}>Header</Footer>;
+function Template(args) {
+  return <Footer {...args}>Header</Footer>;
+}
 
 export const Example = Template.bind({});
 Example.args = {
-  bgColor: "grey",
-  paddings: "30px",
+  bgColor: 'grey',
+  paddings: '30px',
 };

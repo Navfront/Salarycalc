@@ -5,12 +5,15 @@ import Main from './../../../stories/layouts/main/Main';
 import Footer from './../../../stories/layouts/footer/Footer';
 import WorkCalendar from '../../../stories/ui/work-calendar/WorkCalendar';
 import { MONTHS } from './../../../mocks/mocks';
+import Nav from './../../../stories/blocks/nav/Nav';
 
 function IndexPage() {
   return (
     <React.Fragment>
       <Header bgColor={({ theme }) => theme.colors.bg}>
-        <Container>This is Header</Container>
+        <Container>
+          <Nav></Nav>
+        </Container>
       </Header>
       <Main bgColor={({ theme }) => theme.colors.bg}>
         <Container>
