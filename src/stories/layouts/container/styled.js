@@ -13,6 +13,6 @@ export const StyledContainer = styled.div`
   @media (max-width: 767.9px) {
     padding: 0 10px;
   }
-
+  position: relative;
   margin: 0 auto;
 `;

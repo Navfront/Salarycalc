@@ -2,13 +2,13 @@ import styled, { css } from 'styled-components/macro';
 
 const activeStyle = css`
   span:nth-child(1) {
-    transform: translateY(${({ size }) => (size ? `${size * 11.5}px` : '13px')}) rotate(45deg);
+    transform: translateY(${({ size }) => (size ? `${size * 12.0}px` : '13px')}) rotate(45deg);
   }
   span:nth-child(2) {
     transform: rotate(360deg) scaleX(0);
   }
   span:nth-child(3) {
-    transform: translateY(${({ size }) => (size ? `${size * -11.5}px` : '-13px')}) rotate(-45deg);
+    transform: translateY(${({ size }) => (size ? `${size * -12.0}px` : '-13px')}) rotate(-45deg);
   }
 `;
 
