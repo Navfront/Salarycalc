@@ -1,5 +1,4 @@
 import React from 'react';
-
 import Header from '../../../stories/layouts/header/Header';
 import Container from './../../../stories/layouts/container/Container';
 import Main from './../../../stories/layouts/main/Main';
