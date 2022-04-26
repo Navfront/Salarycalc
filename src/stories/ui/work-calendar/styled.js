@@ -1,4 +1,4 @@
-import styled from "styled-components/macro";
+import styled from 'styled-components/macro';
 
 export const StyledWorkCalendar = styled.article`
   color: inherit;
@@ -39,9 +39,7 @@ export const StyledWorkCalendarWrapper = styled.div`
 export const SCell = styled.div`
   position: relative;
   box-sizing: border-box;
-  background-color: ${({ isHday, theme }) => {
-    return isHday ? theme.colors.bgAccent : theme.colors.bgLAccent;
-  }};
+  background-color: ${({ isHday, theme }) => isHday ? theme.colors.bgAccent : theme.colors.bgLAccent};
   color: ${({ isHday, theme }) => (isHday ? theme.colors.warn : theme.colors.text)};
   text-align: center;
   vertical-align: middle;

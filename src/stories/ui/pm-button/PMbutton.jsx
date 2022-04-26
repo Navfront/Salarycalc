@@ -1,6 +1,6 @@
-import { StyledPMButton } from "./styled";
+import { StyledPMButton } from './styled';
 
-const PMButton = ({ onClick, bgColor, children, hSize, wSize, paddings, textColor }) => {
+function PMButton({ onClick, bgColor, children, hSize, wSize, paddings, textColor }) {
   return (
     <StyledPMButton
       onClick={onClick}
@@ -13,6 +13,6 @@ const PMButton = ({ onClick, bgColor, children, hSize, wSize, paddings, textColo
       {children}
     </StyledPMButton>
   );
-};
+}
 
 export default PMButton;

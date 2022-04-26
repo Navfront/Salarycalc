@@ -1,24 +1,22 @@
-import WorkCalendar from "./WorkCalendar";
+import WorkCalendar from './WorkCalendar';
 
 export default {
-  title: "UI/WorkCalendar",
+  title: 'UI/WorkCalendar',
   component: WorkCalendar,
   agrTypes: {
-    title: { control: "string" },
-    month: { control: "number" },
-    hiddenTitle: { control: "string" },
+    title: { control: 'string' },
+    month: { control: 'number' },
+    hiddenTitle: { control: 'string' },
   },
 };
 
-const Template = (args) => (
-  <>
-    <WorkCalendar {...args} />
-  </>
-);
+function Template(args) {
+  return (<WorkCalendar {...args} />);
+}
 
 export const Example = Template.bind({});
 Example.args = {
-  title: "Январь",
-  month: "0",
-  hiddenTitle: "сео",
+  title: 'Январь',
+  month: '0',
+  hiddenTitle: 'сео',
 };

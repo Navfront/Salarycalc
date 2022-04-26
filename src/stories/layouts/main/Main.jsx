@@ -1,9 +1,11 @@
-import { StyledMain } from "./styled";
+import { StyledMain } from './styled';
 
-const Main = ({ children, paddings, bgColor }) => (
-  <StyledMain paddings={paddings} bgColor={bgColor}>
-    {children}
-  </StyledMain>
-);
+function Main({ children, paddings, bgColor }) {
+  return (
+    <StyledMain paddings={paddings} bgColor={bgColor}>
+      {children}
+    </StyledMain>
+  );
+}
 
 export default Main;

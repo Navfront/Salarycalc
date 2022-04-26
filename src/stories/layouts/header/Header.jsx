@@ -1,9 +1,11 @@
-import { StyledHeader } from "./styled";
+import { StyledHeader } from './styled';
 
-const Header = ({ children, paddings, bgColor }) => (
-  <StyledHeader paddings={paddings} bgColor={bgColor}>
-    {children}
-  </StyledHeader>
-);
+function Header({ children, paddings, bgColor }) {
+  return (
+    <StyledHeader paddings={paddings} bgColor={bgColor}>
+      {children}
+    </StyledHeader>
+  );
+}
 
 export default Header;

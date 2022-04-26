@@ -1,9 +1,11 @@
-import { StyledFooter } from "./styled";
+import { StyledFooter } from './styled';
 
-const Footer = ({ children, paddings, bgColor }) => (
-  <StyledFooter paddings={paddings} bgColor={bgColor}>
-    {children}
-  </StyledFooter>
-);
+function Footer({ children, paddings, bgColor }) {
+  return (
+    <StyledFooter paddings={paddings} bgColor={bgColor}>
+      {children}
+    </StyledFooter>
+  );
+}
 
 export default Footer;
