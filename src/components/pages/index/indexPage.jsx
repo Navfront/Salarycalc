@@ -1,27 +1,15 @@
+import React from 'react';
+
 import Header from '../../../stories/layouts/header/Header';
 import Container from './../../../stories/layouts/container/Container';
 import Main from './../../../stories/layouts/main/Main';
 import Footer from './../../../stories/layouts/footer/Footer';
 import WorkCalendar from '../../../stories/ui/work-calendar/WorkCalendar';
-
-const MONTHS = [
-  'Январь',
-  'Февраль',
-  'Март',
-  'Апрель',
-  'Май',
-  'Июнь',
-  'Июль',
-  'Август',
-  'Сентябрь',
-  'Октябрь',
-  'Ноябрь',
-  'Декабрь',
-];
+import { MONTHS } from './../../../mocks/mocks';
 
 function IndexPage() {
   return (
-    <div>
+    <React.Fragment>
       <Header bgColor={({ theme }) => theme.colors.bg}>
         <Container>This is Header</Container>
       </Header>
@@ -36,7 +24,7 @@ function IndexPage() {
       <Footer bgColor={({ theme }) => theme.colors.bg}>
         <Container>This is Footer</Container>
       </Footer>
-    </div>
+    </React.Fragment>
   );
 }
 
