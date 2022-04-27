@@ -1,7 +1,7 @@
 import MainMenu from './MainMenu';
 
 export default {
-  title: 'Blocks/MainMenu',
+  title: 'UI/MainMenu',
   component: MainMenu,
   agrTypes: {
     active: { control: 'boolean' },

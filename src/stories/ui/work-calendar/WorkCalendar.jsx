@@ -1,4 +1,3 @@
-import getWorkDaysDataArray, { getDataArrayWithHDays, twtwo } from '../../../api/work-days-api';
 import { useState } from 'react';
 import React from 'react';
 import {
@@ -9,11 +8,11 @@ import {
   StyledWorkCalendarFigure,
   StyledWorkCalendarWrapper,
 } from './styled';
+import { twentytwo } from '../../../mocks/mocks';
 
 function WorkCalendar({ hiddenTitle, title, month }) {
   // eslint-disable-next-line no-unused-vars
-  const [calendar, setCalendar] = useState(getDataArrayWithHDays(getWorkDaysDataArray(2022), twtwo));
-
+  const [calendar, setCalendar] = useState(twentytwo);
   return (
     <StyledWorkCalendar>
       <HiddenWorkCalendarTitle>{hiddenTitle}</HiddenWorkCalendarTitle>

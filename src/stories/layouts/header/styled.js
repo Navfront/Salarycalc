@@ -1,8 +1,7 @@
 import styled from 'styled-components/macro';
 
 export const StyledHeader = styled.header`
-  padding: ${({ paddings }) => (paddings ? paddings : 0)};
-  background-color: ${({ bgColor }) => (bgColor ? bgColor : 'none')};
+  background-color: ${({ theme }) => (theme ? theme.colors.bgLAccent : 'none')};
   position: fixed;
   width: 100%;
   z-index: 2;

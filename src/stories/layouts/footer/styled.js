@@ -1,8 +1,8 @@
 import styled from 'styled-components/macro';
 
 export const StyledFooter = styled.footer`
-  padding: ${({ paddings }) => (paddings ? paddings : 0)};
-  background-color: ${({ bgColor }) => (bgColor ? bgColor : 'none')};
+  padding: 25px;
+  background-color: ${({ theme }) => (theme ? theme.colors.bg : 'none')};
 `;
 
 export const StyledFooterWrapper = styled.div`

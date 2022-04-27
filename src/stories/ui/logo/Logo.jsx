@@ -1,8 +1,9 @@
 import logo from '../../../assets/logo.png';
 import bigLogo from '../../../assets/mylogolow.jpg';
 import { StyledLogo } from './styled';
+import { memo } from 'react';
 
-export default function Logo({ size, text }) {
+function Logo({ size, text }) {
   return (
     <StyledLogo href="/">
       <img
@@ -15,3 +16,5 @@ export default function Logo({ size, text }) {
     </StyledLogo>
   );
 }
+
+export default memo(Logo);

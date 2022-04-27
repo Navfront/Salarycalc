@@ -1,9 +1,20 @@
 import { StyledBurger } from './styled';
+import { useState } from 'react';
 
-export default function Burger({ bgColor, size, active, onClick }) {
+function Burger({ size }) {
+  const [isBurgerActive, setIsBurgerActive] = useState(false);
+
   return (
-    <StyledBurger onClick={onClick} active={active} bgColor={bgColor} size={size}>
+    <StyledBurger
+      onClick={() => {
+        setIsBurgerActive(!isBurgerActive);
+      }}
+      active={isBurgerActive}
+      size={size}
+    >
       <span /> <span /> <span />
     </StyledBurger>
   );
 }
+
+export default Burger;

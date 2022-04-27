@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Header from '../../../stories/layouts/header/Header';
 import Container from './../../../stories/layouts/container/Container';
 import Main from './../../../stories/layouts/main/Main';
@@ -7,23 +7,18 @@ import WorkCalendar from '../../../stories/ui/work-calendar/WorkCalendar';
 import { MONTHS } from './../../../mocks/mocks';
 import Nav from './../../../stories/blocks/nav/Nav';
 import Logo from '../../../stories/ui/logo/Logo';
-import MainMenu from '../../../stories/blocks/main-menu/MainMenu';
+import MainMenu from '../../../stories/ui/main-menu/MainMenu';
 
 function IndexPage() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const handlerOpenMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
-
   return (
     <React.Fragment>
-      <Header bgColor={({ theme }) => theme.colors.bgLAccent}>
+      <Header>
         <Container>
-          <Nav cb={handlerOpenMenu}></Nav>
-          <MainMenu active={isMenuOpen} />
+          <Nav></Nav>
+          <MainMenu />
         </Container>
       </Header>
-      <Main bgColor={({ theme }) => theme.colors.bg}>
+      <Main>
         <Container>
           {MONTHS.map((item, index) => (
             // eslint-disable-next-line react/no-array-index-key
@@ -31,7 +26,7 @@ function IndexPage() {
           ))}
         </Container>
       </Main>
-      <Footer paddings="25px" bgColor={({ theme }) => theme.colors.bg}>
+      <Footer>
         <Logo size="2" />
         <p> Nazhiganov A.V. © {new Date().getFullYear()}</p>
       </Footer>

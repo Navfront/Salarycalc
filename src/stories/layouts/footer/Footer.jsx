@@ -1,10 +1,10 @@
 import { StyledFooter, StyledFooterWrapper } from './styled';
 import Container from './../container/Container';
+import { memo } from 'react';
 
-function Footer({ paddings, bgColor, children }) {
-  console.log('render');
+function Footer({ children }) {
   return (
-    <StyledFooter paddings={paddings} bgColor={bgColor}>
+    <StyledFooter>
       <Container>
         <StyledFooterWrapper>{children}</StyledFooterWrapper>
       </Container>
@@ -12,4 +12,4 @@ function Footer({ paddings, bgColor, children }) {
   );
 }
 
-export default Footer;
+export default memo(Footer);

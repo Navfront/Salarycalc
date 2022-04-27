@@ -1,11 +1,7 @@
 import { StyledHeader } from './styled';
 
-function Header({ children, paddings, bgColor }) {
-  return (
-    <StyledHeader paddings={paddings} bgColor={bgColor}>
-      {children}
-    </StyledHeader>
-  );
+function Header({ children }) {
+  return <StyledHeader>{children}</StyledHeader>;
 }
 
 export default Header;

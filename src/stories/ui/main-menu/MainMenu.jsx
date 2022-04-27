@@ -1,9 +1,9 @@
 import { StyledMainMenuLayout, StyledMainMenuTitle, StyledMainMenuWrapper } from './styled';
 
-function MainMenu({ active }) {
+function MainMenu() {
   return (
     <StyledMainMenuLayout>
-      <StyledMainMenuWrapper active={active}>
+      <StyledMainMenuWrapper active>
         <StyledMainMenuTitle>Настройки</StyledMainMenuTitle>
         <form action="#" method="post">
           <fieldset>
