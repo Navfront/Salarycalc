@@ -1,1 +1,5 @@
 export const TOGGLE_MENU = 'TOGGLE_MENU';
+export const SET_DEFAULT_RATE = 'SET_DEFAULT_RATE';
+export const SET_EXTRA_RATE = 'SET_EXTRA_RATE';
+export const SET_HOLIDAY_RATE = 'SET_HOLIDAY_RATE';
+export const SET_SICK_RATE = 'SET_SICK_RATE';

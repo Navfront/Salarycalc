@@ -1,18 +1,25 @@
 import styled, { css } from 'styled-components/macro';
 
 const activeMainMenu = css`
-  transform: rotate(0) translateY(0);
+  opacity: 1;
 `;
 
 export const StyledMainMenuLayout = styled.div`
   position: absolute;
-  overflow: hidden;
-  left: 0;
-  right: 0;
-
-  z-index: 1;
-  max-width: 500px;
+  right: -20px;
+  top: 70px;
   margin-left: auto;
+  box-sizing: border-box;
+  min-width: 320px;
+  padding: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.04), 0 2px 6px rgba(0, 0, 0, 0.04), 0 0 1px rgba(0, 0, 0, 0.04);
+
+  transition: ease 0.3s;
+  opacity: 0;
+  background-color: ${({ theme }) => (theme ? theme.colors.bgLAccent : 'none')};
+
+  ${({ active }) => (active ? activeMainMenu : null)}
+
   form {
     font-family: inherit;
   }
@@ -42,24 +49,15 @@ export const StyledMainMenuLayout = styled.div`
 
   input[type='number'] {
     padding: 5px 5px;
-
-    @media (max-width: 420px) {
-      width: 100px;
-    }
+    width: 100px;
+    margin-right: 5px;
   }
-`;
 
-export const StyledMainMenuWrapper = styled.div`
-  box-sizing: border-box;
-  min-width: 320px;
-  padding: 13px;
-  padding-top: 15px;
-  transition: ease 0.3s;
-  transform-origin: 100% 0;
-  transform: translateY(-30%) rotate(-180deg);
-  background-color: ${({ theme }) => (theme ? theme.colors.bgLAccent : 'none')};
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.04), 0 2px 6px rgba(0, 0, 0, 0.04), 0 0 1px rgba(0, 0, 0, 0.04);
-  ${({ active }) => (active ? activeMainMenu : null)}
+  fieldset button {
+    height: 30px;
+    width: 30px;
+    padding: 0;
+  }
 `;
 
 export const StyledMainMenuTitle = styled.p`
@@ -67,12 +65,4 @@ export const StyledMainMenuTitle = styled.p`
   font-weight: 600;
   text-align: center;
   font-family: inherit;
-`;
-
-export const StyledMainMenuSuccessButton = styled.button`
-  background-color: ${({ theme }) => (theme ? theme.colors.bgAccent : 'none')};
-  border-radius: 2px;
-  font-weight: 600;
-  font-size: 20px;
-  padding: 5px 10px;
 `;

@@ -1,40 +1,86 @@
-import { StyledMainMenuLayout, StyledMainMenuTitle, StyledMainMenuWrapper } from './styled';
+import { useSelector, useDispatch } from 'react-redux';
+import { StyledMainMenuLayout, StyledMainMenuTitle } from './styled';
+import { setDefaultRate, setHolidayRate } from '../../../redux/actions';
+import { useRef } from 'react';
+import { setExtraRate, setSickRate } from './../../../redux/actions';
 
 function MainMenu() {
+  const isMenuActive = useSelector((state) => state.appReducer.isMenuOpen);
+  const defaultRate = useSelector((state) => state.ratesReducer.defaultRate);
+  const extraRate = useSelector((state) => state.ratesReducer.extraRate);
+  const holidayRate = useSelector((state) => state.ratesReducer.holidayRate);
+  const sickRate = useSelector((state) => state.ratesReducer.sickRate);
+
+  const dispatchSetDefaultRate = useDispatch();
+  const dispatchSetExtraRate = useDispatch();
+  const dispatchSetHolidayRate = useDispatch();
+  const dispatchSetSickRate = useDispatch();
+
+  const defaultRateInputRef = useRef();
+  const extraRateInputRef = useRef();
+  const holidayRateInputRef = useRef();
+  const sickRateInputRef = useRef();
+
   return (
-    <StyledMainMenuLayout>
-      <StyledMainMenuWrapper active>
-        <StyledMainMenuTitle>Настройки</StyledMainMenuTitle>
-        <form action="#" method="post">
-          <fieldset>
-            <legend>Тарифы</legend>
-            <label htmlFor="defaultRate">Обычные часы</label>
-            <p>
-              <input id="defaultRate" type="number" />
-              <button type="button">уст.</button>
-              <span>-132323</span>
-            </p>
-            <label htmlFor="extraRate">Переработка</label>
-            <p>
-              <input id="extraRate" type="number" />
-              <button type="button">уст.</button>
-              <span>-1123</span>
-            </p>
-            <label htmlFor="holidayRate">Выходной день</label>
-            <p>
-              <input id="holidayRate" type="number" />
-              <button type="button">уст.</button>
-              <span>-11</span>
-            </p>
-            <label htmlFor="sickRate">Больничный</label>
-            <p>
-              <input id="sickRate" type="number" />
-              <button type="button">уст.</button>
-              <span>-1332</span>
-            </p>
-          </fieldset>
-        </form>
-      </StyledMainMenuWrapper>
+    <StyledMainMenuLayout active={isMenuActive}>
+      <StyledMainMenuTitle>Настройки</StyledMainMenuTitle>
+      <form action="#" method="post">
+        <fieldset>
+          <legend>Тарифы</legend>
+          <label htmlFor="defaultRate">Обычные часы</label>
+          <p>
+            <input ref={defaultRateInputRef} id="defaultRate" type="number" placeholder="0" />
+            <button
+              type="button"
+              onClick={() => {
+                dispatchSetDefaultRate(setDefaultRate(defaultRateInputRef.current.value));
+              }}
+            >
+              уст.
+            </button>
+            <span>{defaultRate ? `${defaultRate}р./ч.` : 'загрузка..'}</span>
+          </p>
+          <label htmlFor="extraRate">Переработка</label>
+          <p>
+            <input ref={extraRateInputRef} id="extraRate" type="number" placeholder="0" />
+            <button
+              type="button"
+              onClick={() => {
+                dispatchSetExtraRate(setExtraRate(extraRateInputRef.current.value));
+              }}
+            >
+              уст.
+            </button>
+            <span>{extraRate ? `${extraRate}р./ч.` : 'загрузка..'}</span>
+          </p>
+          <label htmlFor="holidayRate">Выходной день</label>
+          <p>
+            <input ref={holidayRateInputRef} id="holidayRate" type="number" placeholder="0" />
+            <button
+              type="button"
+              onClick={() => {
+                dispatchSetHolidayRate(setHolidayRate(holidayRateInputRef.current.value));
+              }}
+            >
+              уст.
+            </button>
+            <span>{holidayRate ? `${holidayRate}р./ч.` : 'загрузка..'}</span>
+          </p>
+          <label htmlFor="sickRate">Больничный</label>
+          <p>
+            <input ref={sickRateInputRef} id="sickRate" type="number" placeholder="0" />
+            <button
+              type="button"
+              onClick={() => {
+                dispatchSetSickRate(setSickRate(sickRateInputRef.current.value));
+              }}
+            >
+              уст.
+            </button>
+            <span>{sickRate ? `${sickRate}%` : 'загрузка..'}</span>
+          </p>
+        </fieldset>
+      </form>
     </StyledMainMenuLayout>
   );
 }

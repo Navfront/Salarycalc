@@ -6,6 +6,8 @@ export const StyledNav = styled.nav`
   align-items: center;
   padding: 15px;
   margin: 0 10px;
+  position: relative;
+  z-index: 99;
 
   ul {
     list-style: none;

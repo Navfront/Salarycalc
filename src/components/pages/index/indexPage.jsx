@@ -7,7 +7,6 @@ import WorkCalendar from '../../../stories/ui/work-calendar/WorkCalendar';
 import { MONTHS } from './../../../mocks/mocks';
 import Nav from './../../../stories/blocks/nav/Nav';
 import Logo from '../../../stories/ui/logo/Logo';
-import MainMenu from '../../../stories/ui/main-menu/MainMenu';
 
 function IndexPage() {
   return (
@@ -15,7 +14,6 @@ function IndexPage() {
       <Header>
         <Container>
           <Nav></Nav>
-          <MainMenu />
         </Container>
       </Header>
       <Main>
