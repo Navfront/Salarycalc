@@ -2,13 +2,13 @@ import { useState } from 'react';
 import React from 'react';
 import {
   HiddenWorkCalendarTitle,
-  SCell,
   StyledWorkCalendar,
   StyledWorkCalendarCaption,
   StyledWorkCalendarFigure,
   StyledWorkCalendarWrapper,
 } from './styled';
 import { twentytwo } from '../../../mocks/mocks';
+import CalendarCell from './../calendar-cell/CalendarCell';
 
 function WorkCalendar({ hiddenTitle, title, month }) {
   // eslint-disable-next-line no-unused-vars
@@ -23,9 +23,15 @@ function WorkCalendar({ hiddenTitle, title, month }) {
             calendar.length &&
             calendar[month && month < 12 ? month : 0].map((item, index) => (
               // eslint-disable-next-line react/no-array-index-key
-              <SCell isHday={item.hDay} key={index}>
+              <CalendarCell
+                isHday={item.hDay}
+                key={index}
+                onClick={() => {
+                  console.log('123');
+                }}
+              >
                 {item.day}
-              </SCell>
+              </CalendarCell>
             ))}
         </StyledWorkCalendarWrapper>
       </StyledWorkCalendarFigure>
