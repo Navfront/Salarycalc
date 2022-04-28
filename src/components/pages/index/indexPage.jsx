@@ -7,8 +7,11 @@ import WorkCalendar from '../../../stories/ui/work-calendar/WorkCalendar';
 import { MONTHS } from './../../../mocks/mocks';
 import Nav from './../../../stories/blocks/nav/Nav';
 import Logo from '../../../stories/ui/logo/Logo';
+import { useSelector } from 'react-redux';
 
 function IndexPage() {
+  const calendar = useSelector((state) => state.calendarReducer);
+
   return (
     <React.Fragment>
       <Header>
@@ -18,9 +21,9 @@ function IndexPage() {
       </Header>
       <Main>
         <Container>
-          {MONTHS.map((item, index) => (
+          {calendar.map((item, index) => (
             // eslint-disable-next-line react/no-array-index-key
-            <WorkCalendar title={item} key={index} month={index} />
+            <WorkCalendar title={MONTHS[index]} key={index} month={index} />
           ))}
         </Container>
       </Main>

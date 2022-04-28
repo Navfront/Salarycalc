@@ -3,11 +3,6 @@ import { SET_DEFAULT_RATE, SET_EXTRA_RATE, SET_HOLIDAY_RATE, SET_SICK_RATE } fro
 const initialState = { defaultRate: 300, extraRate: 400, holidayRate: 400, sickRate: 60 };
 
 export const ratesReducer = (state = initialState, { type, payload }) => {
-  // eslint-disable-next-line no-console
-  console.log('action>> ', type);
-  // eslint-disable-next-line no-console
-  console.log('action>> ', payload);
-
   switch (type) {
     case SET_DEFAULT_RATE:
       return { ...state, defaultRate: payload };

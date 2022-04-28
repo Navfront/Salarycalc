@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import React from 'react';
 import {
   HiddenWorkCalendarTitle,
@@ -7,12 +6,15 @@ import {
   StyledWorkCalendarFigure,
   StyledWorkCalendarWrapper,
 } from './styled';
-import { twentytwo } from '../../../mocks/mocks';
+
 import CalendarCell from './../calendar-cell/CalendarCell';
+import { useSelector } from 'react-redux';
 
 function WorkCalendar({ hiddenTitle, title, month }) {
+  const calendar = useSelector((state) => state.calendarReducer);
+
   // eslint-disable-next-line no-unused-vars
-  const [calendar, setCalendar] = useState(twentytwo);
+
   return (
     <StyledWorkCalendar>
       <HiddenWorkCalendarTitle>{hiddenTitle}</HiddenWorkCalendarTitle>
@@ -22,13 +24,10 @@ function WorkCalendar({ hiddenTitle, title, month }) {
           {calendar &&
             calendar.length &&
             calendar[month && month < 12 ? month : 0].map((item, index) => (
-              // eslint-disable-next-line react/no-array-index-key
               <CalendarCell
                 isHday={item.hDay}
+                // eslint-disable-next-line react/no-array-index-key
                 key={index}
-                onClick={() => {
-                  console.log('123');
-                }}
               >
                 {item.day}
               </CalendarCell>
