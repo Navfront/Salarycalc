@@ -10,15 +10,15 @@ const appReducerInitialState = {
 export const appReducer = (state = appReducerInitialState, { type, payload }) => {
   switch (type) {
     case TOGGLE_MENU:
-      return { ...appReducerInitialState, isMenuOpen: !state.isMenuOpen };
+      return { ...state, isMenuOpen: !state.isMenuOpen };
     case TOGGLE_POPUP:
       return {
-        ...appReducerInitialState,
+        ...state,
         popup: { isOpen: !state.popup.isOpen, data: payload },
       };
     case SET_FILTER_SHOW:
       return {
-        ...appReducerInitialState,
+        ...state,
         monthFilter: { showMonth: payload.showMonth, showType: payload.showType },
       };
     default:

@@ -113,6 +113,18 @@ function DayMenu({ data }) {
             Больничный
           </button>
         </div>
+        <div className="dayButtonWrapper">
+          <button
+            className="dayButton"
+            type="button"
+            onClick={() => {
+              setDay(setCalendarValue({ ...data, activity: null }));
+              closePopup();
+            }}
+          >
+            Очистить
+          </button>
+        </div>
       </form>
     </StyledDayMenuWrapper>
   );
