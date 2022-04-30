@@ -5,6 +5,7 @@ import {
   SET_HOLIDAY_RATE,
   SET_SICK_RATE,
   SET_CALENDAR_VALUE,
+  TOGGLE_POPUP,
 } from './types';
 
 export const toggleMenu = () => ({ type: TOGGLE_MENU });
@@ -19,4 +20,8 @@ export const setCalendarValue = (obj) => ({
 export const clearCalendarValue = (month, day) => ({
   type: SET_CALENDAR_VALUE,
   payload: { month, day, workType: null, value: null },
+});
+export const togglePopup = (data = null) => ({
+  type: TOGGLE_POPUP,
+  payload: data,
 });

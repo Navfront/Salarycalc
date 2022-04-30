@@ -16,9 +16,7 @@ export const StyledPopup = styled.div`
     width: 90%;
   }
 
-  position: relative;
-
-  .closeButton {
+  .сloseButton {
     position: absolute;
     top: 15px;
     right: 15px;

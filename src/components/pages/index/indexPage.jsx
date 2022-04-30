@@ -5,6 +5,8 @@ import Main from './../../../stories/layouts/main/Main';
 import Footer from './../../../stories/layouts/footer/Footer';
 import Nav from './../../../stories/blocks/nav/Nav';
 import Logo from '../../../stories/ui/logo/Logo';
+import Popup from './../../../stories/ui/popup/Popup';
+import CloseButton from './../../../stories/ui/close-button/CloseButton';
 
 function IndexPage() {
   return (
@@ -19,6 +21,9 @@ function IndexPage() {
         <Logo size="2" />
         <p> Nazhiganov A.V. © {new Date().getFullYear()}</p>
       </Footer>
+      <Popup isShow>
+        <CloseButton />
+      </Popup>
     </React.Fragment>
   );
 }
