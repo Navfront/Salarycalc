@@ -3,6 +3,7 @@ import WorkCalendar from '../../../stories/ui/work-calendar/WorkCalendar';
 import { MONTHS } from './../../../mocks/mocks';
 import { useSelector } from 'react-redux';
 import Container from './../../../stories/layouts/container/Container';
+import MonthFilter from './../../ui/month-filter/MonthFilter';
 
 function Main() {
   const calendar = useSelector((state) => state.calendarReducer);
@@ -10,6 +11,7 @@ function Main() {
   return (
     <StyledMain>
       <Container>
+        <MonthFilter />
         {calendar.map((item, index) => (
           // eslint-disable-next-line react/no-array-index-key
           <WorkCalendar title={MONTHS[index]} key={index} month={index} />

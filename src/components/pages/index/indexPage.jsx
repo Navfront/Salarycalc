@@ -21,7 +21,7 @@ function IndexPage() {
         <Logo size="2" />
         <p> Nazhiganov A.V. © {new Date().getFullYear()}</p>
       </Footer>
-      <Popup isShow>
+      <Popup>
         <CloseButton />
       </Popup>
     </React.Fragment>

@@ -6,6 +6,7 @@ import {
   SET_SICK_RATE,
   SET_CALENDAR_VALUE,
   TOGGLE_POPUP,
+  SET_FILTER_SHOW,
 } from './types';
 
 export const toggleMenu = () => ({ type: TOGGLE_MENU });
@@ -23,5 +24,9 @@ export const clearCalendarValue = (month, day) => ({
 });
 export const togglePopup = (data = null) => ({
   type: TOGGLE_POPUP,
+  payload: data,
+});
+export const setFilterShow = (data = null) => ({
+  type: SET_FILTER_SHOW,
   payload: data,
 });
