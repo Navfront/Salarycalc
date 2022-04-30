@@ -21,7 +21,7 @@ function MainMenu() {
   const holidayRateInputRef = useRef();
   const sickRateInputRef = useRef();
 
-  return (
+  return isMenuActive ? (
     <StyledMainMenuLayout active={isMenuActive}>
       <StyledMainMenuTitle>Настройки</StyledMainMenuTitle>
       <form action="#" method="post">
@@ -82,7 +82,7 @@ function MainMenu() {
         </fieldset>
       </form>
     </StyledMainMenuLayout>
-  );
+  ) : null;
 }
 
 export default MainMenu;

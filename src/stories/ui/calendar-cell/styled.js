@@ -1,6 +1,8 @@
 import styled from 'styled-components/macro';
 
 export const StyledCalendarCell = styled.button`
+  width: 100%;
+  height: 100%;
   position: relative;
   box-sizing: border-box;
   background-color: ${({ isHday, theme }) => (isHday ? theme.colors.bgAccent : theme.colors.bgLAccent)};
@@ -8,7 +10,8 @@ export const StyledCalendarCell = styled.button`
   text-align: center;
   vertical-align: middle;
   user-select: none;
-  display: inline-flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   padding: 3px;
   font-size: 18px;
   font-weight: 500;
@@ -18,7 +21,30 @@ export const StyledCalendarCell = styled.button`
   min-height: 50px;
   min-width: 36.6px;
   @media (max-width: ${({ theme }) => theme.mobileMax}) {
-    font-size: 16px;
+    padding: 2px;
+    font-size: 14px;
+  }
+
+  img {
+    grid-column: 1;
+    grid-row: 2;
+    justify-self: center;
+
+    @media (max-width: ${({ theme }) => theme.mobileMax}) {
+      width: 18px;
+      height: 18px;
+    }
+    @media (max-width: 450px) {
+      margin: 1px 0 0;
+      width: 14px;
+      height: 14px;
+    }
+  }
+
+  .extraHours {
+    grid-column: 2;
+    grid-row: 2;
+    color: red;
   }
 
   &:hover,

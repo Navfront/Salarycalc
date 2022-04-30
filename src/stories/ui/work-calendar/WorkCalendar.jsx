@@ -25,6 +25,15 @@ function WorkCalendar({ hiddenTitle, title, month }) {
             calendar.length &&
             calendar[month && month < 12 ? month : 0].map((item, index) => (
               <CalendarCell
+                dayObject={{
+                  month,
+                  dayIndex: item.dayIndex,
+                  day: item.day,
+                  hDay: item.hDay,
+                  activity: item.activity || null,
+                  extra: item.extra || null,
+                  money: item.money || 0,
+                }}
                 isHday={item.hDay}
                 // eslint-disable-next-line react/no-array-index-key
                 key={index}

@@ -1,17 +1,12 @@
 import React from 'react';
-import Header from '../../../stories/layouts/header/Header';
 import Container from './../../../stories/layouts/container/Container';
+import Header from '../../../stories/layouts/header/Header';
 import Main from './../../../stories/layouts/main/Main';
 import Footer from './../../../stories/layouts/footer/Footer';
-import WorkCalendar from '../../../stories/ui/work-calendar/WorkCalendar';
-import { MONTHS } from './../../../mocks/mocks';
 import Nav from './../../../stories/blocks/nav/Nav';
 import Logo from '../../../stories/ui/logo/Logo';
-import { useSelector } from 'react-redux';
 
 function IndexPage() {
-  const calendar = useSelector((state) => state.calendarReducer);
-
   return (
     <React.Fragment>
       <Header>
@@ -19,14 +14,7 @@ function IndexPage() {
           <Nav></Nav>
         </Container>
       </Header>
-      <Main>
-        <Container>
-          {calendar.map((item, index) => (
-            // eslint-disable-next-line react/no-array-index-key
-            <WorkCalendar title={MONTHS[index]} key={index} month={index} />
-          ))}
-        </Container>
-      </Main>
+      <Main></Main>
       <Footer>
         <Logo size="2" />
         <p> Nazhiganov A.V. © {new Date().getFullYear()}</p>

@@ -12,9 +12,9 @@ export const setDefaultRate = (value) => ({ type: SET_DEFAULT_RATE, payload: val
 export const setExtraRate = (value) => ({ type: SET_EXTRA_RATE, payload: value });
 export const setHolidayRate = (value) => ({ type: SET_HOLIDAY_RATE, payload: value });
 export const setSickRate = (value) => ({ type: SET_SICK_RATE, payload: value });
-export const setCalendarValue = (month, day, workType, value) => ({
+export const setCalendarValue = (obj) => ({
   type: SET_CALENDAR_VALUE,
-  payload: { month, day, workType, value },
+  payload: obj,
 });
 export const clearCalendarValue = (month, day) => ({
   type: SET_CALENDAR_VALUE,
