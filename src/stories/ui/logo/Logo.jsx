@@ -5,7 +5,7 @@ import { memo } from 'react';
 
 function Logo({ size, text }) {
   return (
-    <StyledLogo href="/">
+    <StyledLogo href={size > 1 ? 'https://github.com/Navfront' : '/'}>
       <img
         width={size > 1 ? '200' : '40'}
         height={size > 1 ? '100' : '40'}

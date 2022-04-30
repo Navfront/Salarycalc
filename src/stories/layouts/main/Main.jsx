@@ -4,6 +4,7 @@ import { MONTHS } from './../../../mocks/mocks';
 import { useSelector } from 'react-redux';
 import Container from './../../../stories/layouts/container/Container';
 import MonthFilter from './../../ui/month-filter/MonthFilter';
+import React from 'react';
 
 function Main() {
   const calendar = useSelector((state) => state.calendarReducer);
