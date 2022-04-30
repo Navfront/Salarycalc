@@ -1,7 +1,7 @@
 import styled from 'styled-components/macro';
 
 export const StyledPopup = styled.div`
-  opacity: ${({ isShow }) => (isShow ? 1 : 0)};
+  display: ${({ isShow }) => (isShow ? 'block' : 'none')};
   background-color: ${({ theme }) => (theme ? theme.colors.bgLAccent : 'none')};
   position: fixed;
   left: 50%;

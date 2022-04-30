@@ -1,14 +1,15 @@
 import styled from 'styled-components/macro';
 
 export const StyledDayMenuWrapper = styled.section`
-  width: 100%;
-  height: 100%;
+  width: 98%;
   text-align: center;
+  padding: 10px 5px 10px;
 
   form {
+    padding: 30px 0;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 20px;
+    gap: 10px;
     justify-items: center;
   }
 
@@ -16,10 +17,35 @@ export const StyledDayMenuWrapper = styled.section`
     grid-row: 1/3;
     span {
       display: block;
-      font-size: 30px;
+      font-size: 24px;
+    }
+    .dayNumber {
+      font-size: 32px;
+      font-weight: 900;
+    }
+    .dayDescription {
+      font-size: 16px;
     }
   }
   .dayButtonWrapper {
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.04), 0 2px 6px rgba(0, 0, 0, 0.04), 0 0 1px rgba(0, 0, 0, 0.04);
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+
+    button {
+      padding: 5px 8px;
+      margin-bottom: 5px;
+      width: 140px;
+    }
+  }
+
+  .plusMinusWrapper {
+    button {
+      width: 30px;
+      height: 30px;
+    }
+    button + button {
+      margin-left: 5px;
+    }
   }
 `;

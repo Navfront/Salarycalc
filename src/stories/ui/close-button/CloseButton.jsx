@@ -3,9 +3,9 @@ import { useDispatch } from 'react-redux';
 import { togglePopup } from '../../../redux/actions';
 
 function CloseButton({ children }) {
-  const dispapatchCloseClick = useDispatch();
+  const dispatchCloseClick = useDispatch();
   const handlerOnClick = () => {
-    dispapatchCloseClick(togglePopup(null));
+    dispatchCloseClick(togglePopup(null));
   };
 
   return (

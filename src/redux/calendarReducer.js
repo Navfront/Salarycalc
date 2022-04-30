@@ -13,7 +13,7 @@ export const calendarReducer = (state = twentytwo, { type, payload }) => {
         if (monthIndex === payload.month) {
           const result = month.map((day) => {
             if (day.day === payload.day) {
-              return { ...day, activity: 1, extra: 8, money: 0 };
+              return { ...payload };
             }
             return day;
           });

@@ -1,6 +1,6 @@
 import { TOGGLE_MENU, TOGGLE_POPUP } from './types';
 
-const appReducerInitialState = { isMenuOpen: false, popup: { isOpen: true, data: null } };
+const appReducerInitialState = { isMenuOpen: false, popup: { isOpen: false, data: null } };
 
 export const appReducer = (state = appReducerInitialState, { type, payload }) => {
   switch (type) {
