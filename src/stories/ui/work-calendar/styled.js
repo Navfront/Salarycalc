@@ -35,3 +35,8 @@ export const StyledWorkCalendarWrapper = styled.div`
   grid-template-rows: repeat(7, 1fr);
   gap: 1%;
 `;
+
+export const StyledMonthSalary = styled.p`
+  margin: 0 0 45px;
+  text-align: end;
+`;

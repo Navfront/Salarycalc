@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   HiddenWorkCalendarTitle,
+  StyledMonthSalary,
   StyledWorkCalendar,
   StyledWorkCalendarCaption,
   StyledWorkCalendarFigure,
@@ -9,11 +10,24 @@ import {
 
 import CalendarCell from './../calendar-cell/CalendarCell';
 import { useSelector } from 'react-redux';
+import calcSalary from './../../../api/calcSalary';
 
 function WorkCalendar({ hiddenTitle, title, month }) {
   const calendar = useSelector((state) => state.calendarReducer);
-
+  const ratesObject = useSelector((state) => state.ratesReducer);
+  const [monthSalary, setMonthSalary] = useState({ loading: false, data: 'Загрузка...' });
   // eslint-disable-next-line no-unused-vars
+
+  useEffect(() => {
+    setMonthSalary({ ...monthSalary, loading: true });
+    calcSalary(month, ratesObject)
+      .then((res) => {
+        setMonthSalary({ loading: false, data: res });
+      })
+      .catch((err) => {
+        setMonthSalary({ loading: false, data: err });
+      });
+  }, [setMonthSalary, calendar, ratesObject]);
 
   return (
     <StyledWorkCalendar>
@@ -42,6 +56,7 @@ function WorkCalendar({ hiddenTitle, title, month }) {
               </CalendarCell>
             ))}
         </StyledWorkCalendarWrapper>
+        <StyledMonthSalary>{monthSalary.data}</StyledMonthSalary>
       </StyledWorkCalendarFigure>
     </StyledWorkCalendar>
   );

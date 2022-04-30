@@ -36,7 +36,7 @@ function DayMenu({ data }) {
             className="dayButton"
             type="button"
             onClick={() => {
-              setDay(setCalendarValue({ ...data, activity: 1 }));
+              setDay(setCalendarValue({ ...data, activity: 1, extra: null }));
               closePopup();
             }}
           >
