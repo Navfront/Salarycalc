@@ -1,11 +1,33 @@
-import styled from 'styled-components/macro';
+import styled, { css } from 'styled-components/macro';
+
+const onHover = css`
+  cursor: pointer;
+  &:hover,
+  &:focus {
+    outline: 2px solid ${({ theme }) => theme.colors.hoverBorder};
+    outline-offset: -2px;
+  }
+  &:active {
+    opacity: 0.8;
+    outline: 2px solid ${({ theme }) => theme.colors.bgAccent};
+    outline-offset: -2px;
+  }
+`;
 
 export const StyledCalendarCell = styled.button`
   width: 100%;
   height: 100%;
   position: relative;
   box-sizing: border-box;
-  background-color: ${({ isHday, theme }) => (isHday ? theme.colors.bgAccent : theme.colors.bgLAccent)};
+  background-color: ${({ isDay, isHday, theme }) => {
+    if (!isDay) {
+      return 'transparent';
+    }
+    if (isHday) {
+      return theme.colors.bgAccent;
+    }
+    return theme.colors.bgLAccent;
+  }};
   color: ${({ isHday, theme }) => (isHday ? theme.colors.warn : theme.colors.text)};
   text-align: center;
   vertical-align: middle;
@@ -17,7 +39,7 @@ export const StyledCalendarCell = styled.button`
   font-weight: 500;
   min-height: 50px;
   border: none;
-  cursor: pointer;
+
   min-height: 50px;
   min-width: 36.6px;
   @media (max-width: ${({ theme }) => theme.mobileMax}) {
@@ -47,14 +69,5 @@ export const StyledCalendarCell = styled.button`
     color: red;
   }
 
-  &:hover,
-  &:focus {
-    outline: 2px solid ${({ theme }) => theme.colors.hoverBorder};
-    outline-offset: -2px;
-  }
-  &:active {
-    opacity: 0.8;
-    outline: 2px solid ${({ theme }) => theme.colors.bgAccent};
-    outline-offset: -2px;
-  }
+  ${({ isDay }) => isDay && onHover}
 `;
