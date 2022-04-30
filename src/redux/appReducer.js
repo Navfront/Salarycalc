@@ -1,9 +1,10 @@
 import { SET_FILTER_SHOW, TOGGLE_MENU, TOGGLE_POPUP } from './types';
+import moment from 'moment';
 
 const appReducerInitialState = {
   isMenuOpen: false,
   popup: { isOpen: false, data: null },
-  monthFilter: { showMonth: 0, showType: 0, showOne: false },
+  monthFilter: { showMonth: moment().month(), showType: 0, showOne: false },
 };
 
 export const appReducer = (state = appReducerInitialState, { type, payload }) => {

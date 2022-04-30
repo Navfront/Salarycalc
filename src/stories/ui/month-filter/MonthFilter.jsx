@@ -32,10 +32,11 @@ function MonthFilter() {
         <select
           size="1"
           onChange={(evt) => handlerOnFilter(setFilterShow({ showMonth: Number(evt.target.value), showType: 2 }))}
+          defaultValue={currentMonth}
         >
           {MONTHS.map((item, index) => (
             // eslint-disable-next-line react/no-array-index-key
-            <option key={index} name={index} value={index} selected={currentMonth === index}>
+            <option key={index} name={index} value={index}>
               {item}
             </option>
           ))}
