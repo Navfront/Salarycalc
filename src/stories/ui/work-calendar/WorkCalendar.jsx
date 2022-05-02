@@ -12,7 +12,7 @@ import CalendarCell from './../calendar-cell/CalendarCell';
 import { useSelector } from 'react-redux';
 import calcSalary from './../../../api/calcSalary';
 
-function WorkCalendar({ hiddenTitle, title, month }) {
+function WorkCalendar({ hiddenTitle, title, month }, ref) {
   const calendar = useSelector((state) => state.calendarReducer);
   const ratesObject = useSelector((state) => state.ratesReducer);
   const [monthSalary, setMonthSalary] = useState({ loading: false, data: 'Загрузка...' });
@@ -30,7 +30,7 @@ function WorkCalendar({ hiddenTitle, title, month }) {
   }, [setMonthSalary, calendar, ratesObject]);
 
   return (
-    <StyledWorkCalendar>
+    <StyledWorkCalendar ref={ref}>
       <HiddenWorkCalendarTitle>{hiddenTitle}</HiddenWorkCalendarTitle>
       <StyledWorkCalendarFigure>
         <StyledWorkCalendarCaption>{title}</StyledWorkCalendarCaption>
@@ -62,4 +62,4 @@ function WorkCalendar({ hiddenTitle, title, month }) {
   );
 }
 
-export default WorkCalendar;
+export default React.forwardRef(WorkCalendar);

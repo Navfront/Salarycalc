@@ -4,11 +4,14 @@ import { MONTHS } from './../../../mocks/mocks';
 import { useSelector } from 'react-redux';
 import Container from './../../../stories/layouts/container/Container';
 import MonthFilter from './../../ui/month-filter/MonthFilter';
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
+import moment from 'moment';
 
 function Main() {
   const calendar = useSelector((state) => state.calendarReducer);
   const filter = useSelector((state) => state.appReducer.monthFilter);
+  const currentMonth = moment().month();
+  const currentMonthRef = useRef();
 
   const canIRender = (index) => {
     switch (filter.showType) {
@@ -24,13 +27,25 @@ function Main() {
     }
   };
 
+  useEffect(() => {
+    // eslint-disable-next-line no-console
+    currentMonthRef.current.scrollIntoView({ block: 'center', behavior: 'smooth' });
+  }, []);
+
   return (
     <StyledMain>
       <Container>
         <MonthFilter />
         {calendar.map((item, index) =>
-          // eslint-disable-next-line react/no-array-index-key
-          canIRender(index) ? <WorkCalendar title={MONTHS[index]} key={index} month={index} /> : null
+          canIRender(index) ? (
+            <WorkCalendar
+              ref={currentMonth === index ? currentMonthRef : null}
+              title={MONTHS[index]}
+              // eslint-disable-next-line react/no-array-index-key
+              key={index}
+              month={index}
+            />
+          ) : null
         )}
       </Container>
     </StyledMain>
