@@ -40,3 +40,17 @@ export const StyledMonthSalary = styled.p`
   margin: 0 0 45px;
   text-align: end;
 `;
+
+export const StyledDayName = styled.p`
+  text-align: center;
+  color: ${({ theme }) => (theme ? theme.colors.alfa : 'none')};
+  border: 2px solid ${({ theme }) => (theme ? theme.colors.bgAccent : 'none')};
+  border-radius: 2px;
+  opacity: 0.5;
+  @media (max-width: 767.9px) {
+    font-size: 14px;
+    padding: 0;
+  }
+  margin-bottom: 6px;
+  user-select: none;
+`;

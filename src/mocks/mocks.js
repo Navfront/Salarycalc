@@ -13,6 +13,8 @@ export const MONTHS = [
   'Декабрь',
 ];
 
+export const DAY_NAMES = ['ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ', 'ВС'];
+
 export const twentytwo = [
   [
     {

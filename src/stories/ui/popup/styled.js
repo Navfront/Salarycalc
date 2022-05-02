@@ -28,6 +28,5 @@ export const StyledOverlay = styled.div`
   width: 100%;
   height: 100%;
   position: fixed;
-  z-index: 2;
   background-color: rgba(50, 50, 50, 0.7);
 `;

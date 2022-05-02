@@ -12,8 +12,6 @@ const calcSalary = (monthNumber = 0, { defaultRate, extraRate, holidayRate, sick
 
       workCalendar[monthNumber].forEach((dayItem) => {
         if (dayItem.activity > 0) {
-          // eslint-disable-next-line no-console
-          console.log(dayItem);
           switch (dayItem.activity) {
             case 1:
               if (dayItem.hDay && !dayItem.extra) {

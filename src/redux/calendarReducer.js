@@ -9,9 +9,9 @@ const getCalendarFromLocalStorage = () => JSON.parse(localStorage.getItem('calen
 
 export const calendarReducer = (state = getCalendarFromLocalStorage() || twentytwo, { type, payload }) => {
   // eslint-disable-next-line no-console
-  console.log(type);
+  console.log('type ', type);
   // eslint-disable-next-line no-console
-  console.log(payload);
+  console.log('payload ', payload);
 
   const mapCalendar = () => {
     const newCalendar = state.map((month, monthIndex) => {

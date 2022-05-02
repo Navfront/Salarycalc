@@ -24,7 +24,14 @@ function MainMenu() {
   return isMenuActive ? (
     <StyledMainMenuLayout active={isMenuActive}>
       <StyledMainMenuTitle>Настройки</StyledMainMenuTitle>
-      <form action="#" method="post">
+      <form
+        action="#"
+        method="post"
+        onSubmit={() => {
+          // eslint-disable-next-line no-console
+          console.log('evtsubm');
+        }}
+      >
         <fieldset>
           <legend>Тарифы</legend>
           <label htmlFor="defaultRate">Обычные часы</label>

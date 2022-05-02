@@ -6,11 +6,13 @@ import {
   StyledWorkCalendarCaption,
   StyledWorkCalendarFigure,
   StyledWorkCalendarWrapper,
+  StyledDayName,
 } from './styled';
 
 import CalendarCell from './../calendar-cell/CalendarCell';
 import { useSelector } from 'react-redux';
 import calcSalary from './../../../api/calcSalary';
+import { DAY_NAMES } from './../../../mocks/mocks';
 
 function WorkCalendar({ hiddenTitle, title, month }, ref) {
   const calendar = useSelector((state) => state.calendarReducer);
@@ -35,6 +37,10 @@ function WorkCalendar({ hiddenTitle, title, month }, ref) {
       <StyledWorkCalendarFigure>
         <StyledWorkCalendarCaption>{title}</StyledWorkCalendarCaption>
         <StyledWorkCalendarWrapper>
+          {DAY_NAMES.map((item, index) => (
+            // eslint-disable-next-line react/no-array-index-key
+            <StyledDayName key={index}>{item}</StyledDayName>
+          ))}
           {calendar &&
             calendar.length &&
             calendar[month && month < 12 ? month : 0].map((item, index) => (

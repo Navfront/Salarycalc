@@ -33,9 +33,9 @@ export const StyledDayMenuWrapper = styled.section`
     align-items: stretch;
 
     button {
-      padding: 5px 8px;
+      padding: 5px 5px;
       margin-bottom: 5px;
-      width: 140px;
+      width: 120px;
     }
   }
 
