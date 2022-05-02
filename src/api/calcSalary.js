@@ -17,28 +17,31 @@ const calcSalary = (monthNumber = 0, { defaultRate, extraRate, holidayRate, sick
           switch (dayItem.activity) {
             case 1:
               if (dayItem.hDay && !dayItem.extra) {
-                salary = salary + 8 * holidayRate;
+                salary = salary + Math.round(8 * holidayRate);
                 break;
               }
               if (dayItem.hDay && dayItem.extra) {
-                salary = salary + (8 + dayItem.extra) * holidayRate;
+                salary = salary + Math.round((8 + dayItem.extra) * holidayRate);
               }
               salary =
-                dayItem.extra > 0 ? salary + 8 * defaultRate + dayItem.extra * extraRate : salary + 8 * defaultRate;
+                dayItem.extra > 0
+                  ? salary + Math.round(8 * defaultRate + dayItem.extra * extraRate)
+                  : Math.round(salary + 8 * defaultRate);
               break;
 
             case 2:
               //болезнь
-              salary = salary + 8 * sickRate;
+              salary = salary + Math.round(((8 * defaultRate) / 100) * sickRate);
               break;
 
             case 3:
               //отпуск
-
+              salary = salary + Math.round(8 * defaultRate);
               break;
 
             case 4:
               //простой
+              salary = salary + Math.round(((8 * defaultRate) / 3) * 2);
               break;
 
             default:
