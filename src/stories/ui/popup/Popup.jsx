@@ -1,4 +1,4 @@
-import { StyledPopup } from './styled';
+import { StyledOverlay, StyledPopup } from './styled';
 import { useSelector } from 'react-redux';
 import DayMenu from './../day-menu/DayMenu';
 import CloseButton from '../close-button/CloseButton';
@@ -7,10 +7,12 @@ function Popup() {
   const popupObject = useSelector((state) => state.appReducer.popup);
 
   return (
-    <StyledPopup isShow={popupObject.isOpen}>
-      {popupObject.data ? <DayMenu data={popupObject.data} /> : null}
-      <CloseButton />
-    </StyledPopup>
+    <StyledOverlay isShow={popupObject.isOpen}>
+      <StyledPopup isShow={popupObject.isOpen}>
+        {popupObject.data ? <DayMenu data={popupObject.data} /> : null}
+        <CloseButton />
+      </StyledPopup>
+    </StyledOverlay>
   );
 }
 export default Popup;

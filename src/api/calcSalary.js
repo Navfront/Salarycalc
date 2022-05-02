@@ -48,7 +48,7 @@ const calcSalary = (monthNumber = 0, { defaultRate, extraRate, holidayRate, sick
       });
 
       resolve(`Зарплата за ${MONTHS[monthNumber]}:${salary}`);
-    }, 1000);
+    }, 0);
   });
 
   return result;

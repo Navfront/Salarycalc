@@ -22,3 +22,12 @@ export const StyledPopup = styled.div`
     right: 15px;
   }
 `;
+
+export const StyledOverlay = styled.div`
+  display: ${({ isShow }) => (isShow ? 'block' : 'none')};
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 2;
+  background-color: rgba(50, 50, 50, 0.7);
+`;
