@@ -4,7 +4,10 @@ export default {
   title: 'UI/CalendarCell',
   component: CalendarCell,
   agrTypes: {
-    isHday: { control: 'boolean' },
+    dayObject: {
+      day: { control: 'number' },
+      month: { control: 'number' },
+    },
   },
 };
 
@@ -14,5 +17,8 @@ function Template(args) {
 
 export const Example = Template.bind({});
 Example.args = {
-  isHday: false,
+  dayObject: {
+    day: 1,
+    month: 1,
+  },
 };

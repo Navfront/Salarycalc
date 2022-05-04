@@ -4,8 +4,10 @@ export default {
   title: 'UI/DayMenu',
   component: DayMenu,
   agrTypes: {
-    month: { control: 'string' },
-    dayNumber: { control: 'number' },
+    data: {
+      day: { control: 'number' },
+      month: { control: 'number' },
+    },
   },
 };
 
@@ -15,6 +17,8 @@ function Template(args) {
 
 export const Example = Template.bind({});
 Example.args = {
-  month: 'Апрель',
-  dayNumber: 7,
+  data: {
+    day: 7,
+    month: 4,
+  },
 };

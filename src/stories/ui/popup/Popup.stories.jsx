@@ -3,9 +3,7 @@ import Popup from './Popup';
 export default {
   title: 'UI/Popup',
   component: Popup,
-  agrTypes: {
-    isShow: { control: 'boolean' },
-  },
+  agrTypes: {},
 };
 
 function Template(args) {
@@ -13,6 +11,4 @@ function Template(args) {
 }
 
 export const Example = Template.bind({});
-Example.args = {
-  isShow: true,
-};
+Example.args = {};

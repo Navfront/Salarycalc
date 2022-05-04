@@ -19,6 +19,7 @@ export const StyledCalendarCell = styled.button`
   height: 100%;
   position: relative;
   box-sizing: border-box;
+  border-radius: 2px;
   background-color: ${({ isDay, isHday, theme }) => {
     if (!isDay) {
       return 'transparent';

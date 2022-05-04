@@ -4,7 +4,7 @@ export default {
   title: 'UI/MainMenu',
   component: MainMenu,
   agrTypes: {
-    active: { control: 'boolean' },
+    isActive: { control: 'boolean' },
   },
 };
 
@@ -14,5 +14,5 @@ function Template(args) {
 
 export const Example = Template.bind({});
 Example.args = {
-  active: true,
+  isActive: true,
 };
