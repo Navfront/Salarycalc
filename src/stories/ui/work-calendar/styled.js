@@ -36,11 +36,6 @@ export const StyledWorkCalendarWrapper = styled.div`
   gap: 1%;
 `;
 
-export const StyledMonthSalary = styled.p`
-  margin: 0 0 45px;
-  text-align: end;
-`;
-
 export const StyledDayName = styled.p`
   text-align: center;
   color: ${({ theme }) => (theme ? theme.colors.alfa : 'none')};

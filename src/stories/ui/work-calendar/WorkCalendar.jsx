@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import {
   HiddenWorkCalendarTitle,
-  StyledMonthSalary,
   StyledWorkCalendar,
   StyledWorkCalendarCaption,
   StyledWorkCalendarFigure,
@@ -11,25 +10,12 @@ import {
 
 import CalendarCell from './../calendar-cell/CalendarCell';
 import { useSelector } from 'react-redux';
-import calcSalary from './../../../api/calcSalary';
 import { DAY_NAMES } from './../../../mocks/mocks';
+import MonthSalary from '../month-salary/MonthSalary';
 
 function WorkCalendar({ hiddenTitle, title, month }, ref) {
   const calendar = useSelector((state) => state.calendarReducer);
-  const ratesObject = useSelector((state) => state.ratesReducer);
-  const [monthSalary, setMonthSalary] = useState({ loading: false, data: 'Загрузка...' });
-  // eslint-disable-next-line no-unused-vars
 
-  useEffect(() => {
-    setMonthSalary({ ...monthSalary, loading: true });
-    calcSalary(month, ratesObject)
-      .then((res) => {
-        setMonthSalary({ loading: false, data: res });
-      })
-      .catch((err) => {
-        setMonthSalary({ loading: false, data: err });
-      });
-  }, [setMonthSalary, calendar, ratesObject]);
 
   return (
     <StyledWorkCalendar ref={ref}>
@@ -62,7 +48,7 @@ function WorkCalendar({ hiddenTitle, title, month }, ref) {
               </CalendarCell>
             ))}
         </StyledWorkCalendarWrapper>
-        <StyledMonthSalary>{monthSalary.data}</StyledMonthSalary>
+        <MonthSalary month={month}/>
       </StyledWorkCalendarFigure>
     </StyledWorkCalendar>
   );

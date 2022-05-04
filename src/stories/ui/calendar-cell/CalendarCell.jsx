@@ -5,7 +5,7 @@ import workingDayIcon from '../../../assets/work.svg';
 import sickDayIcon from '../../../assets/sick.svg';
 import palmDayIcon from '../../../assets/palm.svg';
 import sandClock from '../../../assets/sandclock.svg';
-import React, { useState } from 'react';
+import React, {  useState } from 'react';
 
 function CalendarCell({ dayObject, children }) {
   const [activityType, setActivityType] = useState(dayObject.activity);
