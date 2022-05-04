@@ -13,7 +13,7 @@ import { setCalendarValue, togglePopup } from '../../../redux/actions';
 // money: 0
 // month: 0}
 
-function DayMenu({ data }) {
+function DayMenu({ data,cb }) {
   const [extraCount, setExtraCount] = useState(3);
   const setDay = useDispatch();
   const dispatchCloseClick = useDispatch();
@@ -36,8 +36,11 @@ function DayMenu({ data }) {
             className="dayButton"
             type="button"
             onClick={() => {
+
               setDay(setCalendarValue({ ...data, activity: 1, extra: null }));
+              cb(1);
               closePopup();
+
             }}
           >
             8 Часов
@@ -49,6 +52,7 @@ function DayMenu({ data }) {
             type="button"
             onClick={() => {
               setDay(setCalendarValue({ ...data, activity: 1, extra: extraCount }));
+              cb(1);
               closePopup();
             }}
           >
@@ -83,6 +87,7 @@ function DayMenu({ data }) {
             type="button"
             onClick={() => {
               setDay(setCalendarValue({ ...data, activity: 3 }));
+              cb(3);
               closePopup();
             }}
           >
@@ -95,6 +100,7 @@ function DayMenu({ data }) {
             type="button"
             onClick={() => {
               setDay(setCalendarValue({ ...data, activity: 4 }));
+              cb(4);
               closePopup();
             }}
           >
@@ -107,6 +113,7 @@ function DayMenu({ data }) {
             type="button"
             onClick={() => {
               setDay(setCalendarValue({ ...data, activity: 2 }));
+              cb(2);
               closePopup();
             }}
           >
@@ -119,6 +126,7 @@ function DayMenu({ data }) {
             type="button"
             onClick={() => {
               setDay(setCalendarValue({ ...data, activity: null }));
+              cb(0);
               closePopup();
             }}
           >

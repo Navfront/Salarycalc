@@ -13,28 +13,41 @@ export const calendarReducer = (state = getCalendarFromLocalStorage() || twentyt
   // eslint-disable-next-line no-console
   console.log('payload ', payload);
 
-  const mapCalendar = () => {
-    const newCalendar = state.map((month, monthIndex) => {
-      if (monthIndex === payload.month) {
-        const result = month.map((day) => {
-          if (day.day === payload.day) {
-            return { ...payload };
-          }
-          return day;
-        });
-        return result;
-      }
+  // const mapCalendar = () => {
+  //   const newCalendar = state.map((month, monthIndex) => {
+  //     if (monthIndex === payload.month) {
+  //       const result = month.map((day) => {
+  //         if (day.day === payload.day) {
+  //           return { ...payload };
+  //         }
+  //         return day;
+  //       });
+  //       return result;
+  //     }
 
-      return month;
-    });
-    localStorage.removeItem('calendar');
-    localStorage.setItem('calendar', JSON.stringify(newCalendar));
-    return newCalendar;
-  };
+  //     return month;
+  //   });
+  //   localStorage.removeItem('calendar');
+  //   localStorage.setItem('calendar', JSON.stringify(newCalendar));
+  //   return newCalendar;
+  // };
 
   switch (type) {
     case SET_CALENDAR_VALUE:
-      return mapCalendar();
+      state.forEach((month, monthIndex) => {
+        if (monthIndex === payload.month) {
+          month.forEach((day) => {
+            if (day.day === payload.day) {
+              day.month = payload.month;
+              day.activity = payload.activity;
+              day.extra = payload.extra;
+            }
+          });
+        }
+      });
+      localStorage.removeItem('calendar');
+      localStorage.setItem('calendar', JSON.stringify(state));
+      return state;
 
     default:
       return state;

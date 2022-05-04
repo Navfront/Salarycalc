@@ -22,9 +22,9 @@ export const clearCalendarValue = (month, day) => ({
   type: SET_CALENDAR_VALUE,
   payload: { month, day, workType: null, value: null },
 });
-export const togglePopup = (data = null) => ({
+export const togglePopup = (data = null, callBack) => ({
   type: TOGGLE_POPUP,
-  payload: data,
+  payload: { data, callBack },
 });
 export const setFilterShow = (data = null) => ({
   type: SET_FILTER_SHOW,

@@ -9,7 +9,7 @@ function Popup() {
   return (
     <StyledOverlay isShow={popupObject.isOpen}>
       <StyledPopup isShow={popupObject.isOpen}>
-        {popupObject.data ? <DayMenu data={popupObject.data} /> : null}
+        {popupObject.data ? <DayMenu data={popupObject.data} cb={popupObject.callBack} /> : null}
         <CloseButton />
       </StyledPopup>
     </StyledOverlay>
