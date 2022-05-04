@@ -13,25 +13,6 @@ export const calendarReducer = (state = getCalendarFromLocalStorage() || twentyt
   // eslint-disable-next-line no-console
   console.log('payload ', payload);
 
-  // const mapCalendar = () => {
-  //   const newCalendar = state.map((month, monthIndex) => {
-  //     if (monthIndex === payload.month) {
-  //       const result = month.map((day) => {
-  //         if (day.day === payload.day) {
-  //           return { ...payload };
-  //         }
-  //         return day;
-  //       });
-  //       return result;
-  //     }
-
-  //     return month;
-  //   });
-  //   localStorage.removeItem('calendar');
-  //   localStorage.setItem('calendar', JSON.stringify(newCalendar));
-  //   return newCalendar;
-  // };
-
   switch (type) {
     case SET_CALENDAR_VALUE:
       state.forEach((month, monthIndex) => {

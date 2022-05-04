@@ -8,17 +8,18 @@ const appReducerInitialState = {
 };
 
 export const appReducer = (state = appReducerInitialState, { type, payload }) => {
-  // eslint-disable-next-line no-console
-  console.log('type ', type);
-  // eslint-disable-next-line no-console
-  console.log('payload ', payload);
   switch (type) {
     case TOGGLE_MENU:
       return { ...state, isMenuOpen: !state.isMenuOpen };
     case TOGGLE_POPUP:
       return {
         ...state,
-        popup: { isOpen: !state.popup.isOpen, data: payload.data, callBack: payload.callBack },
+        popup: {
+          isOpen: !state.popup.isOpen,
+          data: payload.data,
+          callBack: payload.callBack,
+          callBackTwo: payload.callBackTwo,
+        },
       };
     case SET_FILTER_SHOW:
       return {

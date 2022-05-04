@@ -9,9 +9,10 @@ import React, { useState } from 'react';
 
 function CalendarCell({ dayObject, children }) {
   const [activityType, setActivityType] = useState(dayObject.activity);
+  const [extra, setExtra] = useState(dayObject.extra);
   const openDayMenu = useDispatch();
   const handlerCellOnClick = () => {
-    openDayMenu(togglePopup(dayObject, setActivityType));
+    openDayMenu(togglePopup(dayObject, setActivityType, setExtra));
 
   };
 
@@ -23,7 +24,7 @@ function CalendarCell({ dayObject, children }) {
       {activityType === 3 ? <img width="20" height="20" src={palmDayIcon} alt="vocation day" /> : null}
       {activityType === 4 ? <img width="20" height="20" src={sandClock} alt="waiting day" /> : null}
 
-      {dayObject.extra && dayObject.activity === 1 ? <span className="extraHours">+{dayObject.extra}</span> : null}
+      {extra && activityType === 1 ? <span className="extraHours">+{extra}</span> : null}
     </StyledCalendarCell>
   );
 }

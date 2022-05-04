@@ -13,7 +13,7 @@ import { setCalendarValue, togglePopup } from '../../../redux/actions';
 // money: 0
 // month: 0}
 
-function DayMenu({ data,cb }) {
+function DayMenu({ data,cellActivityCallBack, cellExtraCallBack }) {
   const [extraCount, setExtraCount] = useState(3);
   const setDay = useDispatch();
   const dispatchCloseClick = useDispatch();
@@ -38,7 +38,8 @@ function DayMenu({ data,cb }) {
             onClick={() => {
 
               setDay(setCalendarValue({ ...data, activity: 1, extra: null }));
-              cb(1);
+              cellActivityCallBack(1);
+              cellExtraCallBack(null);
               closePopup();
 
             }}
@@ -52,7 +53,8 @@ function DayMenu({ data,cb }) {
             type="button"
             onClick={() => {
               setDay(setCalendarValue({ ...data, activity: 1, extra: extraCount }));
-              cb(1);
+              cellActivityCallBack(1);
+              cellExtraCallBack(extraCount);
               closePopup();
             }}
           >
@@ -86,8 +88,9 @@ function DayMenu({ data,cb }) {
             className="dayButton"
             type="button"
             onClick={() => {
-              setDay(setCalendarValue({ ...data, activity: 3 }));
-              cb(3);
+              setDay(setCalendarValue({ ...data, activity: 3, extra: null }));
+              cellActivityCallBack(3);
+              cellExtraCallBack(null);
               closePopup();
             }}
           >
@@ -99,8 +102,9 @@ function DayMenu({ data,cb }) {
             className="dayButton"
             type="button"
             onClick={() => {
-              setDay(setCalendarValue({ ...data, activity: 4 }));
-              cb(4);
+              setDay(setCalendarValue({ ...data, activity: 4, extra: null }));
+              cellActivityCallBack(4);
+              cellExtraCallBack(null);
               closePopup();
             }}
           >
@@ -112,8 +116,9 @@ function DayMenu({ data,cb }) {
             className="dayButton"
             type="button"
             onClick={() => {
-              setDay(setCalendarValue({ ...data, activity: 2 }));
-              cb(2);
+              setDay(setCalendarValue({ ...data, activity: 2, extra: null }));
+              cellActivityCallBack(2);
+              cellExtraCallBack(null);
               closePopup();
             }}
           >
@@ -125,8 +130,9 @@ function DayMenu({ data,cb }) {
             className="dayButton"
             type="button"
             onClick={() => {
-              setDay(setCalendarValue({ ...data, activity: null }));
-              cb(0);
+              setDay(setCalendarValue({ ...data, activity: null, extra: null }));
+              cellActivityCallBack(0);
+              cellExtraCallBack(null);
               closePopup();
             }}
           >
