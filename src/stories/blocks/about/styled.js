@@ -19,7 +19,7 @@ export const StyledAboutWrapper = styled.div`
   ${({ isShow }) => (isShow ? null : visuallyHidden)}
   transition: ease 0.3s height;
   text-align: center;
-
+  overflow: hidden;
   p {
     line-height: 1.45;
   }
