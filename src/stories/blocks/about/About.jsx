@@ -1,19 +1,23 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { StyledAboutWrapper, StyledAboutButton } from './styled';
 
+export const getIsShowFromLocalStorage = ()=>{
+  if (localStorage.getItem('isShowAbout') === 'y') {
+    return false;
+  }
+  return true;
+};
+
 export default function About() {
-  const getIsShowFromLocalStorage = ()=>{
-    if (localStorage.getItem('isShowAbout') === 'false') {
-      return false;
-    }
-    return true;
-  };
+
 
   const [canShow, setCanShow] = useState(getIsShowFromLocalStorage());
 
-  useEffect(() => {
-    localStorage.setItem('isShowAbout', 'false');
+  // размонтирование
+  useEffect(() => () => {
+    localStorage.setItem('isShowAbout', 'y');
   }, []);
+
 
   const aboutWrapperRef = useRef();
 

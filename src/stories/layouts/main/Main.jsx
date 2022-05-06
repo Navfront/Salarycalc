@@ -29,8 +29,11 @@ function Main() {
   };
 
   useEffect(() => {
-    // eslint-disable-next-line no-console
-    currentMonthRef.current.scrollIntoView({ block: 'center', behavior: 'smooth' });
+    //нужно сделать скролл при закрытом About
+    // if (false) {
+    //   currentMonthRef.current.scrollIntoView({ block: 'center', behavior: 'smooth' });
+    // }
+
   }, []);
 
   return (
