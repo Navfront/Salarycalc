@@ -10,7 +10,7 @@ function Burger({ size }) {
   const toggleMainMenu = useCallback(() => dispatch(toggleMenu()), []);
 
   return (
-    <StyledBurger
+    <StyledBurger aria-label='Меню настроек'
       onClick={() => {
         setIsBurgerActive(!isBurgerActive);
         toggleMainMenu();

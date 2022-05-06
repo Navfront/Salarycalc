@@ -5,18 +5,6 @@ export const StyledWorkCalendar = styled.section`
   font-size: 18px;
   font-weight: 400;
 `;
-export const HiddenWorkCalendarTitle = styled.h2`
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  border: 0;
-  padding: 0;
-  white-space: nowrap;
-  clip-path: inset(100%);
-  clip: rect(0 0 0 0);
-  overflow: hidden;
-`;
 export const StyledWorkCalendarFigure = styled.figure`
   border-radius: 4px;
   margin: 0;
@@ -38,7 +26,7 @@ export const StyledWorkCalendarWrapper = styled.div`
 
 export const StyledDayName = styled.p`
   text-align: center;
-  color: ${({ theme }) => (theme ? theme.colors.alfa : 'none')};
+  color: ${({ theme }) => (theme ? theme.colors.text : 'none')};
   border: 2px solid ${({ theme }) => (theme ? theme.colors.bgAccent : 'none')};
   border-radius: 2px;
   opacity: 0.5;

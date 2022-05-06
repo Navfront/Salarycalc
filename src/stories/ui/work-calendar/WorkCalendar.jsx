@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  HiddenWorkCalendarTitle,
   StyledWorkCalendar,
   StyledWorkCalendarCaption,
   StyledWorkCalendarFigure,
@@ -13,14 +12,13 @@ import { useSelector } from 'react-redux';
 import { DAY_NAMES, MONTHS } from './../../../mocks/mocks';
 import MonthSalary from '../month-salary/MonthSalary';
 
-function WorkCalendar({ hiddenTitle, title, month }, ref) {
+function WorkCalendar({  title, month }, ref) {
   const calendar = useSelector((state) => state.calendarReducer);
 
 
   return (
     <StyledWorkCalendar ref={ref}>
       <h3 className='visually-hidden'>График за месяц {MONTHS[month]}</h3>
-      <HiddenWorkCalendarTitle>{hiddenTitle}</HiddenWorkCalendarTitle>
       <StyledWorkCalendarFigure>
         <StyledWorkCalendarCaption>{title}</StyledWorkCalendarCaption>
         <StyledWorkCalendarWrapper>

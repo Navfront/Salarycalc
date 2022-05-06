@@ -46,6 +46,7 @@ function Main() {
             <WorkCalendar
               ref={currentMonth === index ? currentMonthRef : null}
               title={MONTHS[index]}
+              hiddenTitle={`Календарь за месяц ${MONTHS[index]}`}
               // eslint-disable-next-line react/no-array-index-key
               key={index}
               month={index}

@@ -7,6 +7,7 @@ function Logo({ size, text }) {
   return (
     <StyledLogo href={size > 1 ? 'https://github.com/Navfront' : '/'}>
       <img
+        loading='lazy'
         width={size > 1 ? '200' : '40'}
         height={size > 1 ? '100' : '40'}
         src={size > 1 ? bigLogo : logo}

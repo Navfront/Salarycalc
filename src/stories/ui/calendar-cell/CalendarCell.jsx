@@ -17,7 +17,7 @@ function CalendarCell({ dayObject, children }) {
   };
 
   return (
-    <StyledCalendarCell onClick={dayObject.day && handlerCellOnClick} isHday={dayObject.hDay} isDay={dayObject.day}>
+    <StyledCalendarCell aria-label='Настройки дня' onClick={dayObject.day && handlerCellOnClick} isHday={dayObject.hDay} isDay={dayObject.day}>
       {children}
       {activityType === 1 ? <img width="20" height="20" src={workingDayIcon} alt="working day" /> : null}
       {activityType === 2 ? <img width="20" height="20" src={sickDayIcon} alt="sick day" /> : null}
