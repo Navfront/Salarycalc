@@ -10,7 +10,7 @@ import {
 
 import CalendarCell from './../calendar-cell/CalendarCell';
 import { useSelector } from 'react-redux';
-import { DAY_NAMES } from './../../../mocks/mocks';
+import { DAY_NAMES, MONTHS } from './../../../mocks/mocks';
 import MonthSalary from '../month-salary/MonthSalary';
 
 function WorkCalendar({ hiddenTitle, title, month }, ref) {
@@ -19,6 +19,7 @@ function WorkCalendar({ hiddenTitle, title, month }, ref) {
 
   return (
     <StyledWorkCalendar ref={ref}>
+      <h2 className='visually-hidden'>График за месяц {MONTHS[month]}</h2>
       <HiddenWorkCalendarTitle>{hiddenTitle}</HiddenWorkCalendarTitle>
       <StyledWorkCalendarFigure>
         <StyledWorkCalendarCaption>{title}</StyledWorkCalendarCaption>

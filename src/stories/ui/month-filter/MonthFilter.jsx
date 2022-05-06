@@ -11,6 +11,7 @@ function MonthFilter() {
 
   return (
     <StyledMonthFilter>
+      <h2 className='visually-hidden'>Фильтр по месяцам</h2>
       <form action="#" method="get">
         <div className="monthFilterWrapper">
           <button type="button" onClick={() => handlerOnFilter(setFilterShow({ showMonth: 0, showType: 0 }))}>
