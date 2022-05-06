@@ -7,7 +7,7 @@ export default function Nav() {
   return (
     <StyledNav>
       <Logo text={'SalaryCalc'} />
-      <h1 className='visually-hidden'>Составить рабочий график и подсчитать зарплату за месяц</h1>
+      <h1 className='visually-hidden'>Приложение для составления рабочего графика и подсчета зарплаты за месяц</h1>
       <Burger size="0.8" />
       <MainMenu />
     </StyledNav>

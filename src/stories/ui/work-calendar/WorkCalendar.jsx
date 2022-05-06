@@ -19,7 +19,7 @@ function WorkCalendar({ hiddenTitle, title, month }, ref) {
 
   return (
     <StyledWorkCalendar ref={ref}>
-      <h2 className='visually-hidden'>График за месяц {MONTHS[month]}</h2>
+      <h3 className='visually-hidden'>График за месяц {MONTHS[month]}</h3>
       <HiddenWorkCalendarTitle>{hiddenTitle}</HiddenWorkCalendarTitle>
       <StyledWorkCalendarFigure>
         <StyledWorkCalendarCaption>{title}</StyledWorkCalendarCaption>

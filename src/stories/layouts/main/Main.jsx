@@ -6,6 +6,7 @@ import Container from './../../../stories/layouts/container/Container';
 import MonthFilter from './../../ui/month-filter/MonthFilter';
 import React, { useEffect, useRef } from 'react';
 import moment from 'moment';
+import About from '../../blocks/about/About';
 
 function Main() {
   const calendar = useSelector((state) => state.calendarReducer);
@@ -35,6 +36,7 @@ function Main() {
   return (
     <StyledMain>
       <Container>
+        <About/>
         <MonthFilter />
         {calendar.map((item, index) =>
           canIRender(index) ? (
