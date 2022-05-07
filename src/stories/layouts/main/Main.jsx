@@ -39,7 +39,7 @@ function Main() {
   return (
     <StyledMain>
       <Container>
-        <About/>
+        <About currentMonthRef={currentMonthRef}/>
         <MonthFilter />
         {calendar.map((item, index) =>
           canIRender(index) ? (

@@ -9,6 +9,25 @@ export const StyledAboutWrapper = styled.div`
   p {
     line-height: 1.45;
   }
+
+  .aboutArrowButton {
+    display: inline-flex;
+    align-items: center;
+    border: 2px dashed ${({ theme }) => theme.colors.delta};
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: transparent;
+    font-weight: 600;
+    cursor: pointer;
+    &:hover {
+      opacity: 0.6;
+    }
+
+    img {
+      margin-left: 8px;
+      transform: rotate(180deg);
+    }
+  }
 `;
 
 export const StyledAboutButton = styled.button`
@@ -21,4 +40,8 @@ export const StyledAboutButton = styled.button`
   padding: 5px 10px;
   border-radius: 13px;
   font-weight: 600;
+  cursor: pointer;
+  &:hover {
+    opacity: 0.6;
+  }
 `;
